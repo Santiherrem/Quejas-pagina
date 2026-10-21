@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PQRS - Campaña Representante Regional SENA</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo-area">
+                <div class="sena-logo">SENA</div>
+                <div>
+                    <h1>Representación Regional</h1>
+                    <p>Sistema de PQRS - Campaña</p>
+                </div>
+            </div>
+            <nav class="nav-tabs">
+                <button class="tab-btn active" onclick="switchTab('radicar')">Radicar PQRS</button>
+                <button class="tab-btn" onclick="switchTab('consultar')">Consultar Estado</button>
+                <button class="tab-btn admin-btn" onclick="switchTab('admin')">Panel Admin</button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- contenido -->
+    <main class="container main-content">
+        <!-- pa radicar -->
+        <section id="section-radicar" class="tab-section active">
+            <div class="card">
+                <h2>Radicar nueva Petición, Queja, Reclamo o Sugerencia</h2>
+                <p class="subtitle">Tu voz es importante para mejorar nuestro SENA regional.</p>
+                <form id="pqrsForm" onsubmit="handleRadicar(event)">
+                    <div class="form-group">
+                        <label for="nombre">Nombre Completo (Opcional / Anónimo)</label>
+                        <input type="text" id="nombre" placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico (Para recibir respuesta)</label>
+                        <input type="email" id="correo" required placeholder="tucorreo@sena.edu.co">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo">Tipo de Solicitud</label>
+                        <select id="tipo" required>
+                            <option value="Petición">Petición</option>
+                            <option value="Queja">Queja</option>
+                            <option value="Reclamo">Reclamo</option>
+                            <option value="Sugerencia">Sugerencia</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Descripción de la PQRS</label>
+                        <textarea id="mensaje" rows="5" required placeholder="Escribe detalladamente tu solicitud..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar PQRS</button>
+                </form>
+                <div id="radicadoResultado" class="alert hidden"></div>
+            </div>
+        </section>
+
+        <!-- esto es para consultar -->
+        <section id="section-consultar" class="tab-section">
+            <div class="card">
+                <h2>Consultar Estado de tu PQRS</h2>
+                <p class="subtitle">Ingresa el código de radicado que se te entregó al enviar tu solicitud.</p>
+                <div class="search-box">
+                    <input type="text" id="codigoConsulta" placeholder="Ej. SENA-2026-1001">
+                    <button onclick="handleConsultar()" class="btn btn-primary">Consultar</button>
+                </div>
+                <div id="resultadoConsulta" class="result-box hidden"></div>
+            </div>
+        </section>
+
+        <!-- la seccion de Admin -->
+        <section id="section-admin" class="tab-section">
+            <div class="card">
+                <div class="admin-header">
+                    <h2>Panel de Gestión de Campaña</h2>
+                    <span class="badge" id="totalCount">0 Solicitudes</span>
+                </div>
+                <p class="subtitle">Gestiona, filtra y responde las PQRS de los aprendices.</p>
+                
+                <div class="admin-filters">
+                    <button class="filter-btn active" onclick="filterAdmin('todos')">Todas</button>
+                    <button class="filter-btn" onclick="filterAdmin('Pendiente')">Pendientes</button>
+                    <button class="filter-btn" onclick="filterAdmin('Respondido')">Respondidas</button>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>Radicado</th>
+                                <th>Tipo / Remitente</th>
+                                <th>Mensaje</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminTableBody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- responder -->
+    <div id="responseModal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <h3>Responder PQRS: <span id="modalRadicado"></span></h3>
+            <p id="modalMensajeOriginal" class="original-msg"></p>
+            <form id="responseForm" onsubmit="handleResponder(event)">
+                <input type="hidden" id="modalId">
+                <div class="form-group">
+                    <label for="respuestaTexto">Respuesta oficial de la campaña:</label>
+                    <textarea id="respuestaTexto" rows="4" required placeholder="Escribe la respuesta..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar Respuesta</button>
+            </form>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; no se que va a poner aca tons tin </p>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
