@@ -37,10 +37,16 @@
                         <label for="nombre">Nombre Completo (Opcional / Anónimo)</label>
                         <input type="text" id="nombre" placeholder="Ej. Juan Pérez">
                     </div>
-                    <div class="form-group">
-                        <label for="correo">Correo Electrónico (Para recibir respuesta)</label>
-                        <input type="email" id="correo" required placeholder="tucorreo@sena.edu.co">
-                    </div>
+    <div class="form-group">
+    <label for="correo">Correo Electrónico (SENA, Gmail, Hotmail, etc.)</label>
+    <input 
+        type="email" 
+        id="correo" 
+        required 
+        placeholder="ejemplo@sena.edu.co o tu_correo@gmail.com"
+        pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+        title="Ingresa un correo válido (ejemplo: usuario@sena.edu.co, usuario@gmail.com)">
+</div>
                     <div class="form-group">
                         <label for="tipo">Tipo de Solicitud</label>
                         <select id="tipo" required>
