@@ -1,0 +1,367 @@
+/* Variables de colores */
+
+:root {
+    --sena-green: #39A900;
+    --sena-dark-green: #2d8600;
+    --sena-blue: #00324D;
+    --sena-light-blue: #005a87;
+    --bg-color: #f4f6f8;
+    --text-color: #333333;
+    --white: #ffffff;
+    --gray: #e2e8f0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.header {
+    background-color: var(--sena-blue);
+    color: var(--white);
+    padding: 15px 0;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sena-logo {
+    background-color: var(--sena-green);
+    color: var(--white);
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding: 10px 15px;
+    border-radius: 8px;
+    letter-spacing: 1px;
+}
+
+.header h1 {
+    font-size: 1.3rem;
+}
+
+.header p {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+/* tabs de nav */
+.nav-tabs {
+    display: flex;
+    gap: 10px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 2px solid rgba(255,255,255,0.3);
+    color: var(--white);
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+/* forms */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #475569;
+}
+
+.form-group input, .form-group select, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    border-color: var(--sena-green);
+}
+
+.btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary {
+    background-color: var(--sena-green);
+    color: var(--white);
+    width: 100%;
+}
+
+.btn-primary:hover {
+    background-color: var(--sena-dark-green);
+}
+
+/* alertas y resultados */
+.alert {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    background-color: #d1fae5;
+    color: #065f46;
+    font-weight: 500;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid var(--gray);
+    border-radius: 6px;
+}
+
+.search-box button {
+    width: auto;
+}
+
+.result-box {
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 8px;
+    background: #f8fafc;
+    border: 1px solid var(--gray);
+}
+.tab-btn:hover, .tab-btn.active {
+    background-color: var(--sena-green);
+    border-color: var(--sena-green);
+}
+
+.admin-btn {
+    border-color: var(--sena-green);
+}
+
+/* contenido principal */
+.main-content {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.tab-section {
+    display: none;
+}
+
+.tab-section.active {
+    display: block;
+}
+
+.card {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card h2 {
+    color: var(--sena-blue);
+    margin-bottom: 8px;
+}
+
+.subtitle {
+    color: #64748b;
+    margin-bottom: 24px;
+    font-size: 0.95rem;
+}
+
+/* vista de admin */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.badge {
+    background-color: var(--sena-blue);
+    color: var(--white);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.admin-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.filter-btn {
+    background: #e2e8f0;
+    border: none;
+    padding: 6px 14px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+.filter-btn.active {
+    background-color: var(--sena-blue);
+    color: var(--white);
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 0.9rem;
+}
+
+.admin-table th, .admin-table td {
+    padding: 12px;
+    border-bottom: 1px solid var(--gray);
+}
+
+.admin-table th {
+    background-color: #f8fafc;
+    color: var(--sena-blue);
+}
+
+.status-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+.status-badge.pendiente {
+    background-color: #fef3c7;
+    color: #d97706;
+}
+
+.status-badge.respondido {
+    background-color: #d1fae5;
+    color: #059669;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    background-color: var(--sena-blue);
+    color: var(--white);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btn-sm:hover {
+    background-color: var(--sena-light-blue);
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: var(--white);
+    padding: 30px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 500px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #64748b;
+}
+
+.original-msg {
+    background: #f1f5f9;
+    padding: 10px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin: 10px 0 20px 0;
+    color: #475569;
+}
+
+/* footer */
+.footer {
+    background-color: var(--sena-blue);
+    color: var(--white);
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.85rem;
+}
+
+@media (max-width: 768px) {
+    .header-content {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-tabs {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
